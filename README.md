@@ -16,6 +16,6 @@ npm install
 # develop
 npm run docs:dev
 ```
-open http://localhost:8080/quick-vue-admin-document/
+open http://localhost:8080/
 
 > Generator by [vuepress](https://github.com/vuejs/vuepress)

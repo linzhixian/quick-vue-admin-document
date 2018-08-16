@@ -12,12 +12,14 @@ module.exports = {
 		{
 		 title:'开始',
 		 collapsable:false,
-		 children:['/guide/background.md','/guide/install.md','/guide/quickStart.md']
+		 children:['/begin/background.md','/begin/install.md','/begin/quickStart.md']
 	    },
 		{
 		  title:"指南",
 		  collapsable:false,
-		  children:['/advance/title.md','/advance/av-menu.md','/advance/metaconfig.md']
+		  children:['/guide/base.md','/guide/title.md','/guide/av-menu.md','/guide/config.md','/guide/id_autoincrement.md','/guide/metaconfig.md','/guide/cmetaconfig.md','/guide/smetaconfig.md',
+		'/guide/dbref.md',	  
+		  '/guide/fareaextend.md','/guide/customcom.md','/guide/authority.md']
 		 
 	    },
 		{

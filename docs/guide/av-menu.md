@@ -1,14 +1,14 @@
 # 侧边栏菜单
   
   
-  通过编辑：项目目录/config/nav_menu.js文件的nav_menu来制定菜单组
+  通过编辑文件：/config/shared/nav_menu.js 的 nav_menu来制定菜单组
   目前只这次二级菜单(未来可能支持多级)
 
   下面设置了两个菜单组：
   - 功能：员工，审批，文档
   - 设置：部门
 ```bash
-文件：项目目录/config/nav_menu.js
+文件：/config/shared/nav_menu.js
 
 module.exports = {
     title: 'HR系统',
@@ -37,3 +37,12 @@ module.exports = {
 通过iconCls 可以定制图标样式，由于ui使用的是element-ui，所以我们可以使用[element-ui Icon图标](http://element-cn.eleme.io/#/zh-CN/component/icon)
 
 设置完菜单后，就是对每个菜单编写对于的配置文件。
+
+## 隐藏菜单(不渲染)
+
+通过增加hidden:true属性达到隐藏菜单，但是可以通过程序跳转
+
+```bash  
+  { path: '/company/Doc', hidden:true,name: '文档' }
+
+```
