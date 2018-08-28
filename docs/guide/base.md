@@ -23,24 +23,25 @@
 │   ├── shared                 // 前后端共享配置文件 
 ├── src                        // 源代码
 │   ├── client                 // 前端源代码
-│       ├── api                // 前端API请求
-│       ├── components         // 全局公共组件
-│       ├── utils              // 前端公用方法
-│       ├── views              // views所有页面
-│       ├── vuex               // 前端存储
-│       ├── App.vue            //入口页面
-│       ├── main.js            //入口文件，加载：组件、路由
+│   │   ├── api                // 前端API请求
+│   │   ├── components         // 全局公共组件
+│   │   ├── utils              // 前端公用方法
+│   │   ├── views              // views所有页面
+│   │   ├── vuex               // 前端存储
+│   │   ├── App.vue            //入口页面
+│   │   └── main.js            //入口文件，加载：组件、路由
 │   ├── server                 // 后端源代码
-│       ├── controllers        // http响应控制器
-│       ├── db                 // 数据库
-│       ├── error              // 异常
-│       ├── middlewares        // koa 中间件
-│       ├── routers            // 路由
-│       ├── services           // 后端通用业务方法
-│       ├── utils              // 后端通用方法
-│   ├── shared                 // 前后端通用源代码
+│   │   ├── controllers        // http响应控制器
+│   │   ├── db                 // 数据库
+│   │   ├── error              // 异常
+│   │   ├── meta               // 后端元配置文件
+│   │   ├── middlewares        // koa 中间件
+│   │   ├── routers            // 路由
+│   │   ├── services           // 后端通用业务方法
+│   │   └── utils              // 后端通用方法
+│   └── shared                 // 前后端通用源代码
 │       ├── meta               // 元配置文件
-│       ├── utils              // 通用方法
+│       └── utils              // 通用方法
 ├── www                        // www目录，静态资源
 │   └── dist                   // webpack bundle file：build.js
 ├── .babelrc                   // babel配置

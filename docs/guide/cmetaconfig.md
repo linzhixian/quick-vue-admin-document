@@ -26,23 +26,25 @@ module.exports = {
 ## 格式
    元配置文件其就是一个js文件，可导出的变量有：
 
-| 变量名      | 说明    | 类型  | 可选 | 默认值|
-| --------   | -----   | ---- |----  |---   |
-| entityName  | 实体名(MongoDB集合名)      |   string    | 必填|-|
-| columnsDef | 列定义  |   array[object][详解](/guide/cmetaconfig.html#columnsdef)    | 必填||-|
-| pageSize | 每页记录数  |   int    | 可选|20|
-| showAdd | 显示新增按钮  |   boolean    | 可选|true|
-| editable | 是否可编辑(双击)  |   boolean    | 可选|true|
-| showRemove | 显示删除按钮  |   boolean    | 可选|true|
-| showPagination | 显示分页栏  |   boolean    | 可选|true|
-| showIndexCol | 显示索引列  |   boolean    | 可选|true|
-| showFilter | 显示查询区  |   boolean    | 可选|true|
-| showSummary | 显示表尾合计行  |   boolean    | 可选|false|
-| loadDatas | 预加载数据  |   object    | 可选|-|
-| filterConditions | 内置数据过滤条件  |   object{k:v}    | 可选|-|
-| methods.filterCheck | 过滤条件检查(提交前)  |   Function(filterConditions)/Object    | 可选|-|
-| sorted | 默认排序  |   object{k:v}    | 可选|-|
-| hook    | 前端hook函数 [详解](/guide/cmetaconfig.html#hook)| object{k:f}    | 可选|-|
+| 变量名      | 说明    | 类型  | 可选 | 默认值|可选值|
+| --------   | -----   | ---- |----  |---   |---   |
+| pageAdminComponent| 组件名|string| 可选|table-admin|table-admin<br>tree-admin<br>自定义组件名|
+| entityName  | 实体名(MongoDB集合名)      |   string    | 必填|-|-|
+| columnsDef | 列定义  |   [array[object]](/guide/cmetaconfig.html#columnsdef)    | 必填|-|-|
+| pageSize | 每页记录数  |   int    | 可选|20|-|
+| showAdd | 显示新增按钮  |   boolean    | 可选|true|-|
+| editable | 是否可编辑(双击)  |   boolean    | 可选|true|-|
+| showRemove | 显示删除按钮  |   boolean    | 可选|true|-|
+| showPagination | 显示分页栏  |   boolean    | 可选|true|-|
+| showIndexCol | 显示索引列  |   boolean    | 可选|true|-|
+| showFilter | 显示查询区  |   boolean    | 可选|true|-|
+| showSummary | 显示表尾合计行  |   boolean    | 可选|false|-|
+| loadDatas | [预加载数据](/guide/cmetaconfig.html#loaddatas-data) |   object    | 可选|-|
+| data      | 存放loadDatas加载的数据|object|可选|-|{}|
+| filterConditions | 内置数据过滤条件  |   object{k:v}    | 可选|-|-|
+| methods.filterCheck | 过滤条件检查(提交前)  |   Function(filterConditions)/Object    | 可选|-|-|
+| sorted | 默认排序  |   object{k:v}    | 可选|-|-|
+| hook    | [前端hook函数](/guide/cmetaconfig.html#hook)| object{k:f}    | 可选|-|-|
 
 
 
@@ -56,13 +58,14 @@ module.exports = {
 | --------   | -----   | ----   |----  |---   |
 |prop        | 属性名   | string | 必须 |-|
 |label       | 标签     | string | 必须 |-|
-|show        | 是否显示 | boolean | 可选 |true| 
+|hiddden     | 是否隐藏 | boolean | 可选 |false| 
 |width       | 列宽 | int     | 可选|-|
-|filter       | 是否可查询 [详解](/guide/cmetaconfig.html#filter) | boolean     | 可选|false|
-|index       | 创建索引 [详解](/guide/cmetaconfig.html#index) | Boolean/object | 可选|false|
+|filter       | [是否可查询](/guide/cmetaconfig.html#filter) | boolean     | 可选|false|
+|index       | [创建索引](/guide/cmetaconfig.html#index) | Boolean/object | 可选|false|
 |add         | 可新增  | boolean     | 可选|true|
 |edit        | 可编辑  | boolean     | 可选|true|
-|input       | 输入方式 [详解](/guide/cmetaconfig.html#input) | string 或 object     | 可选|-|
+|input       | [输入方式](/guide/cmetaconfig.html#input) | string 或 object     | 可选|-|
+|autoRef     |[自动关联](/guide/dbref.html) | boolean|可选| true|
 |formatter   | 内容格式化| Function(row, column, cellValue, index)|可选|-|
 |download    | 是否可下载(当input.type=='file'时用到)|boolean |可选|false|
 |serverHook  | 后端元配置参数|object|可选|-|
@@ -72,12 +75,12 @@ serverHook
 - 如果配置了文件形式的后代元配置文件，优先启用文件的，此处配置会无效
 
 
-## filter
+### filter
    定义该字段是否可在界面查询
 - filter==true，则在页面查询条件区会显示一个文本输入框
 - 如果是要显示下拉菜单，则:filter为{type:'select',optins:[{label:'启用',value:true},{label:'禁用',value:false}]}
-- 如果下拉菜单的内容来自后台,filter为{type:'select',optins:[],ajax:{[详细说明](/guide/cmetaconfig.html#ajax)}}
-## index
+- 如果下拉菜单的内容来自后台,filter为{type:'select',optins:[],ajax:{[详细说明](/guide/cmetaconfig.html#input-ajax)}}
+### index
   在MongoDB下，将在系统每次启动时，自动创建该字段索引，不会重复创建
 - 当字段定义了filter,最好也定一下index，否则数据量一大，查询将会很慢
 - index ==true ，相当于{sortOrder:1}的简写，定义升序索引
@@ -88,7 +91,7 @@ serverHook
 暂时不支持创建多个字段的组合索引
 :::
 
-## formatter
+### formatter
 
 格式化单元格的内容
   
@@ -98,11 +101,11 @@ serverHook
         return cellValue? "启用" : "禁用"
     }
 ```
-## input
+### input
 
  当input为'text',相当于{type:'text'}的简写
 
- 由于内置的UI组件采用的是[Element-UI](http://element-cn.eleme.io/#/zh-CN/component/installation)，所以很多具体配置方式将连接到Element-UI文档
+ 由于内置的UI组件采用的是[Element-UI](http://element-cn.eleme.ito/#/zh-CN/component/installation)，所以很多具体配置方式将连接到Element-UI文档
 
  input如果是对象，通用变量如下表：
 
@@ -165,14 +168,14 @@ rule 为 object
 | allowCreate | 是否允许用户创建新条目，需配合 filterable 使用| boolean   | 可选 |false|
 | clearable | 单选时是否可以清空选项| boolean   | 可选 |false |
 | options|下拉选项|array[{label:'选项名',value:'选项值'}]|可选|-|
-| ajax|options动态填充|object [详解](/guide/metaconfig.html#ajax)|可选|-|
+| ajax|options动态填充|object [详解](/guide/cmetaconfig.html#input-ajax)|可选|-|
 
 ### input.type=='radioGroup'
 
 | 变量名      | 说明    |  类型   | 可选 |
 | --------   | -----   | ----   |----  |
 | options|选项|array[{label:'选项名',value:'选项值'}]|和ajax选其一|
-| ajax|options动态填充|object [详解](/guide/metaconfig.html#ajax)|和options选其一|
+| ajax|options动态填充|object [详解](/guide/cmetaconfig.html#input-ajax)|和options选其一|
 
 ### input.type=='date'
 
@@ -238,11 +241,15 @@ rule 为 object
 | --------   | -----   | ----   |----  |---|
 |data     | 展示数据[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#attributes)|object|必填|-|
 |props     | 配置选项[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#props)|object|必填|-|
+|renderContent|节点定制渲染[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#attributes)|Function|可选|-|
+|nodeKey|唯一标识的属性[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#attributes)|String|必须|-|
+|checkChange|选中状态发生变化时的回调[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#events)|Function|必须|-|
+|expandAll|是否默认展开所有节点[请看](http://element-cn.eleme.io/#/zh-CN/component/tree#attributes)|boolean|可选|-|
 
 
 
 
-### ajax
+### input.ajax
 
 通过input.ajax或filter.ajax获取的数据会设置到input.options或filer.options
 
@@ -290,19 +297,97 @@ rule 为 object
 
 | 函数名      | 说明    |  类型   | 返回
 | --------   | -----   | ----   |----  |---|---|
-| submitCheck| 在新增或修改的提交数据前   | Function(formData,vue) formData   |formData|
+| submitCheck| 在新增或修改的提交数据前   | Function(formData,vue) vue为编辑组件的vue对象   |formData|
 | onShowAdd|  在打开新增窗口时   | Function(formData,vue)   |
-| onShowEdit| 在打开编辑窗口时   | Function(formData,vue)  |
+| onShowEdit| 在打开编辑窗口时   | Function(formData,vue) vue为编辑组件的vue对象 |
 | queryCheck| 在提交查询数据前   | Function(query,vue) |query
 
 
 
 例子：我们要把提交的数据的字段provinces改成数组
 
-```bash
+```js
 let hook={
  submitCheck:function(formData,vue) {
   formdata.provinces=formdata.provinces.split(",")
   return formdata
 }
+```
+## loadDatas && data
+
+  loadDatas用于需要从后端预先加载的数据放入data,一般用于格式化时需要把_id转为名称
+
+  <br>格式：
+  | 属性名      | 说明    |  类型   | 返回
+  | --------   | -----   | ----   |----  |---|---|
+ | name| 放入data的属性名   | string   |formData|
+ | ajax| 从后端加载数据,同[input.ajax](/guide/cmetaconfig.html#input-ajax)  | object  |
+ 
+例如：员工 所属的部门id值转为部门名称
+
+```js{53}
+//  /src/shared/company/Employee.js
+
+let methods = {
+    
+    formatSex: function (row, column,cellValue) {
+        return cellValue? "男" : "女"
+    },
+    formatDepartment:function(row, column,cellValue) {
+        if(data.DepartmentList) {
+          for (let item of data.DepartmentList) {
+            if (cellValue == item._id) return item.name;
+          }
+        }
+
+    }
+};
+
+let loadDatas = [{
+    name: 'DepartmentList',
+    ajax: {
+        path: '/company/Department',
+        projects:{_id:1,name:1}
+    }
+}]
+
+let data = {}
+
+
+module.exports = {
+    entityName: 'employee',   
+    loadDatas,
+    data:data,
+    columnsDef: [{
+            prop: 'name',
+            label: '姓名',
+            width: 240,
+            filter: true,
+            input: { type: 'text', rule: 'required' },
+            index:true
+        },
+        {
+            prop: 'sex',
+            label: '性别',
+            width: 150,
+            input:{type:'radioGroup',options:[{label:'男',value:true},{label:'女',value:false}]},
+            formatter:methods.formatSex
+        },   
+        {
+            prop: 'department',
+            label: '部门',
+            width: 150,
+            input:{type:'select',ajax:{path:'/company/Department',label:'name',value:'_id',projects:{_id:1,name:1}}},
+            formatter:methods.formatDepartment,
+            autoRef:false
+        },       
+        {
+            prop: 'memo',
+            label: '备注',
+            width: 150,
+            input: 'text'
+        }
+    ]
+}
+
 ```
