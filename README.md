@@ -2,7 +2,7 @@
 
  The document source of quick-vue-admin
  
- Online
+ [Online](https://linzhixian.github.io/quick-vue-admin-document/)
 
 # Development
  
