@@ -2,7 +2,7 @@
 home: true
 heroImage: /hero.jpg
 actionText: 开始 →
-actionLink: /begin/background.md
+actionLink: /begin/quickStart.md
 features:
 - title: 开箱即用
   details: 即刻可以进行业务开发
