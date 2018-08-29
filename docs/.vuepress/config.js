@@ -15,7 +15,7 @@ module.exports = {
 		{
 		 title:'开始',
 		 collapsable:false,
-		 children:['/begin/background.md','/begin/install.md','/begin/quickStart.md']
+		 children:['/begin/quickStart.md','/begin/background.md','/begin/install.md']
 	    },
 		{
 		  title:"指南",
