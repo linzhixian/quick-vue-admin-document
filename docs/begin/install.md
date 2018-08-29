@@ -35,9 +35,9 @@ npm run dev
     },
 ``` 
 启动完成后会自动打开浏览器访问 http://localhost:9001， 你看到下面的页面就代表操作成功了。
-![](/login.png)
+<img :src="$withBase('/login.png')" >
 
 系统默认初始化管理员账号为：用户名：admin,密码：admin。
 
 登录后进入下面页面代表登陆成功
-![](/home.png)
+<img :src="$withBase('/home.png')" >

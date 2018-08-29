@@ -2,7 +2,6 @@ module.exports = {
   title: 'Quick vue admin',
   description: 'A least programming admin',
   base: '/quick-vue-admin-document/',
-  host:'192.168.1.114',
   themeConfig: {
     docsDir: "docs",
 	sidebarDepth: 3,

@@ -27,7 +27,7 @@ module.exports = {
 ```
 刷新浏览器：
 左边侧边栏多了个菜单组：功能，点开功能，点部门，则出现：
-![](/dep.png)
+<img :src="$withBase('/dep.png')" >
 页面内容显示：404 page not found ,这是因为我们还没定义部门的配置文件
 ## 第二步：创建部门配置文件
  在第一步里配置的菜单：部门 的path是：'/company/Department'
@@ -78,7 +78,7 @@ load("example", require("./example"));
 ```
 ## 完成
 - 刷新浏览器，部门菜单现在有内容了。
-![](/depok.png)
+<img :src="$withBase('/depok.png')" >
 - 新增：点【新增】 按钮，增加一个部门
 - 双击：表格的任一行记录，可以打开编辑对话框
 - 删除：勾选多条记录，点【删除】按钮

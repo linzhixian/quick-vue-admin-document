@@ -50,4 +50,4 @@ module.exports = {
 成果：
 
 
-![](/tree.png)
+<img :src="$withBase('/tree.png')" >
