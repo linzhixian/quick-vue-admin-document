@@ -24,11 +24,6 @@ module.exports = {
 		'/guide/dbref.md','/guide/tree.md',
 		  '/guide/fareaextend.md','/guide/customcom.md','/guide/authority.md']
 		 
-	    },
-		{
-		  title:"参考",
-		  collapsable:false
-		 
 	    }
 	 ]
   }

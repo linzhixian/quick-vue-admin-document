@@ -56,15 +56,3 @@ module.exports = {
 则元配置文件的创建步骤：
 1.  在 /src/shared/meta 创建目录 company
 2. 在/src/shared/meta/company/下创建三个通用元配置文件：Department.js,Employee.js
-3. 创建文件/src/shared/meta/index.js
-
-```js
-import * as Department from "./Department";
-import * as Employee from "./Employee";
-
-module.exports = {Department,Employee};
-```
-4.  在 /src/shared/meta/index.js 增一行
-```js
- load("company", require("./company"));
-```

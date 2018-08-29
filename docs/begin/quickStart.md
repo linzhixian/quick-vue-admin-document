@@ -33,11 +33,6 @@ module.exports = {
  在第一步里配置的菜单：部门 的path是：'/company/Department'
  - 对应这个path，在:项目目录/src/shared/meta/ 下新建一个目录：company
  - 在新目录下：新建一个文件:Department.js
- - 在新目录下：创建文件index.js键入如下内容：
-```js{5}
-import * as Department from "./Department";
-module.exports = {Department};
-```
  - 在新文件：Department.js，键入如下内容：
 ```js{5}
 module.exports = {
@@ -57,24 +52,6 @@ module.exports = {
         }
     ]
 }
-```
-## 第三步：导入
-1.在目录：/src/shared/meta/company/ 下创建文件index.js
-
-```js{5}
-import * as Department from "./Department"
-
-module.exports = {Department}
-```
-2.在目录:/src/shared/meta/index.js增加一行
-
-```js{5}
-let map = {};
-
-load("company", require("./company"));
-load("sys",require("./sys"));
-load("example", require("./example"));
-...
 ```
 ## 完成
 - 刷新浏览器，部门菜单现在有内容了。
@@ -100,4 +77,4 @@ load("example", require("./example"));
 - 需要使用完全自定义的组件
 - 等等
 
-这些需求都可以在配置文件里实现，具体实现请进入下一步课程：→[指南](/guide/title.md)
+这些需求都可以在配置文件里实现，具体实现请进入下一步课程：→[指南](/guide/base.md)
