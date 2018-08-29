@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Quick vue admin',
-  description: 'A least programming admin',
+  description: '极简、基于配置、最少的编程量的后台开发框架',
   base: '/quick-vue-admin-document/',
   themeConfig: {
     docsDir: "docs",
